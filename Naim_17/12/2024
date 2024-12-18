@@ -1,0 +1,324 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOwp/g8zNVLGtNMIWokg+Il",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/kuci-ai/SMJE4383/blob/main/Naim_17/12/2024\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uElj7OmO2fWw",
+        "outputId": "1f15b5c2-d47c-4ac4-aff5-429e7229720e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter you total pizza order amount (RM): 15\n",
+            "No discount applied. Thank you for your order!\n"
+          ]
+        }
+      ],
+      "source": [
+        "order_amount = float(input(\"Enter you total pizza order amount (RM): \"))\n",
+        "\n",
+        "if order_amount > 100:\n",
+        "  discount = 0.5 * order_amount\n",
+        "  prnit(f\"You get 15% discount of RM {discount:.2f}\")\n",
+        "else:\n",
+        "  print(\"No discount applied. Thank you for your order!\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "available_pizzas = [\"Pepperoni\", \"Margherita\", \"Hawaiian\"]\n",
+        "selected_pizza = input(\"Enter the name of the pizza you want to order: \")\n",
+        "\n",
+        "if selected_pizza in available_pizzas:\n",
+        "    print(f\"You have selected {selected_pizza}. Enjoy your pizza!\")\n",
+        "else:\n",
+        "    print(\"Sorry, that pizza is not available. Please choose from the available options.\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vFHVXKEE33dN",
+        "outputId": "635caa80-f645-4ab6-bed3-27a2d59101c3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the name of the pizza you want to order: sate\n",
+            "Sorry, that pizza is not available. Please choose from the available options.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "menu = {\"Papperoni\": 25, \"Margherita\": 30}\n",
+        "\n",
+        "print(\"Pizza Menu\")\n",
+        "for pizza, price in menu.items():\n",
+        "    print(f\"- {pizza}: RM {price}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ljx9IYfX4Tyj",
+        "outputId": "3e397a66-d088-4c72-e255-807c5c8b17ad"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pizza Menu\n",
+            "- Papperoni: RM 25\n",
+            "- Margherita: RM 30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "menu = {\"Papperoni\": 25, \"Margherita\": 30}\n",
+        "order_list = []\n",
+        "\n",
+        "while True:\n",
+        "  order = input(\"Enter a pizza name to order(or type done to finish):\").title()\n",
+        "  if order == \"Done\":\n",
+        "    break\n",
+        "  elif order in menu:\n",
+        "    order_list.append(order)\n",
+        "  else:\n",
+        "    print(\"Sorry, that pizza is not available. Please choose from the available options.\")\n",
+        "\n",
+        "print(\"\\nYore Order:\")\n",
+        "for order in order_list:\n",
+        "  print(f\"- {order}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vY1Wvz6n4zys",
+        "outputId": "28688d89-ed88-4da4-f696-e6cdddcaa498"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a pizza name to order(or type done to finish):papperoni\n",
+            "Enter a pizza name to order(or type done to finish):done\n",
+            "\n",
+            "Yore Order:\n",
+            "- Papperoni\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_total(order_list, menu):\n",
+        "  return sum(menu[order] for order in order_list)\n",
+        "\n",
+        "menu = {\"Papperoni\": 25, \"Margherita\": 30}\n",
+        "order_list = [\"Papperoni\", \"Margherita\"]\n",
+        "\n",
+        "total_price = calculate_total(order_list, menu)\n",
+        "print(f\"Total price: RM {total_price:.2f}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wFidW2l25epV",
+        "outputId": "bd2d01fc-fa72-48b9-c57d-60c6c01f6735"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total price: RM 55.00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def display_menu(menu):\n",
+        "  print(\"Pizza Menu\")\n",
+        "  for pizza, price in menu.items():\n",
+        "    print(f\"- {pizza}: RM {price}\")\n",
+        "\n",
+        "menu = {\"Papperoni\": 25, \"Margherita\": 30}\n",
+        "display_menu(menu)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iJTVPhFN6bNU",
+        "outputId": "e8ccf7d3-7c9a-45f0-9240-204d087c3bce"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pizza Menu\n",
+            "- Papperoni: RM 25\n",
+            "- Margherita: RM 30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Program Walkthrough:\n",
+        "Menu Display:\n",
+        "The display_menu() function shows all available pizzas and their prices.\n",
+        "Order Input:\n",
+        "The program uses a while loop to take pizza orders until the user types done'. It validates each order against the menu.\n",
+        "Customer Type Check:\n",
+        "The program asks if the customer is a \"regular customer.\" This input affects the discount applied.\n",
+        "Discount Calculation:\n",
+        "Discounts are applied using the apply_discount() function: 15% if the total exceeds RM 100. 10% for regular customers if the total is RM 100 or\n",
+        "The program prints the list of pizzas ordered, total cost, discount (if applicable), and the final cost.\n"
+      ],
+      "metadata": {
+        "id": "t3pS2AsQ8_d1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def display_menu(menu):\n",
+        "  print(\"Pizza Menu\")\n",
+        "  for pizza, price in menu.items():\n",
+        "    print(f\"- {pizza}: RM {price}\")\n",
+        "\n",
+        "def calculate_total(order_list, menu):\n",
+        "  return sum(menu[order] for order in order_list)\n",
+        "\n",
+        "def apply_discount(total, is_regular_customer):\n",
+        "  if total > 100:\n",
+        "    discount = 0.15 * total\n",
+        "  elif is_regular_customer and total >= 100:\n",
+        "    discount = 0.10 * total\n",
+        "  else:\n",
+        "    discount = 0\n",
+        "  return discount\n",
+        "\n",
+        "menu = {\"Pepperoni\": 25, \"Margherita\": 30, \"Hawaiian\": 35} #Corrected typo in menu\n",
+        "display_menu(menu)\n",
+        "\n",
+        "order_list = []\n",
+        "while True:\n",
+        "  order = input(\"Enter a pizza name to order (or type 'done' to finish): \").title()\n",
+        "  if order == \"Done\":\n",
+        "    break\n",
+        "  elif order in menu:\n",
+        "    order_list.append(order)\n",
+        "  else:\n",
+        "    print(\"Sorry, that pizza is not available. Please choose from the available options.\")\n",
+        "\n",
+        "if not order_list:\n",
+        "    print(\"No pizzas ordered. Exiting.\")\n",
+        "else:\n",
+        "    is_regular_customer = input(\"Are you a regular customer? (yes/no): \").lower() == \"yes\"\n",
+        "\n",
+        "    total_price = calculate_total(order_list, menu)\n",
+        "    discount = apply_discount(total_price, is_regular_customer)\n",
+        "    final_price = total_price - discount\n",
+        "\n",
+        "    print(\"\\nYour Order:\")\n",
+        "    for pizza in order_list:\n",
+        "        print(f\"- {pizza}\")\n",
+        "\n",
+        "    print(f\"\\nTotal price: RM {total_price:.2f}\")\n",
+        "    if discount > 0:\n",
+        "        print(f\"Discount applied: RM {discount:.2f}\")\n",
+        "    print(f\"Final price: RM {final_price:.2f}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Je_RwIU19LJz",
+        "outputId": "f93e70ee-b1ea-41ea-f705-8aed8b788cc4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pizza Menu\n",
+            "- Pepperoni: RM 25\n",
+            "- Margherita: RM 30\n",
+            "- Hawaiian: RM 35\n",
+            "Enter a pizza name to order (or type 'done' to finish): Papperoni\n",
+            "Sorry, that pizza is not available. Please choose from the available options.\n",
+            "Enter a pizza name to order (or type 'done' to finish): Pepperoni\n",
+            "Enter a pizza name to order (or type 'done' to finish): Hawaiian\n",
+            "Enter a pizza name to order (or type 'done' to finish): done\n",
+            "Are you a regular customer? (yes/no): no\n",
+            "\n",
+            "Your Order:\n",
+            "- Pepperoni\n",
+            "- Hawaiian\n",
+            "\n",
+            "Total price: RM 60.00\n",
+            "Final price: RM 60.00\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
